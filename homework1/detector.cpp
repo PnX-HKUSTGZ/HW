@@ -114,8 +114,8 @@ std::vector<Armor> Detector::matchLights(const std::vector<Light> & lights)
   // auto为自动匹配关键字对应的数据类型，可以是灯条、装甲板等自己预先定义的类
     
       //TODO::在这里实现你对灯条的匹配，从教程种提到的各种“不变条件”进行考虑，计算特征值，
-      // 将得到的结果赋值给type: type = ArmorType::INVALID / ArmorType::LARGE / ArmorType::SMALL
-
+      // 将得到的结果赋值给type: type = ArmorType::INVALID / ArmorType::LARGE / ArmorType::SMALL 即可
+      
 
 
 
@@ -151,12 +151,6 @@ void Detector::drawResults(cv::Mat & img)
     cv::line(img, armor.left_light.bottom, armor.right_light.top, cv::Scalar(0, 255, 0), Armor_draw_strike);
   }
 
-  // Show numbers and confidence
-  // for (const auto & armor : armors_) {
-  //   cv::putText(
-  //     img, armor.classfication_result, armor.left_light.top, cv::FONT_HERSHEY_SIMPLEX, 0.8,
-  //     cv::Scalar(0, 255, 255), 2);
-  // }
 }
 
 void Detector::WholeProcess(cv::Mat & ori_img){
