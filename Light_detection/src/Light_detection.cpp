@@ -120,10 +120,10 @@ int main() {
         std::cerr << "Could not read the image: " << "images/image.png" << std::endl;
         return -1;
     }
-    // std::cout << "Image type: " << rgb_img.type() << std::endl;
-    // std::cout << "Image size: " << rgb_img.size() << std::endl;
-    //std::cout << "Number of channels: " << bgr_img.channels() << std::endl;
-    // std::cout << "Image depth: " << rgb_img.depth() << std::endl;
+    // std::cout << "Image type: " << bgr_img.type() << std::endl;
+    // std::cout << "Image size: " << bgr_img.size() << std::endl;
+    // std::cout << "Number of channels: " << bgr_img.channels() << std::endl;
+    // std::cout << "Image depth: " << bgr_img.depth() << std::endl;
         // 输出图像的深度
     //int depth = bgr_img.depth();
     //std::cout << "Image depth: " << depth << std::endl;
@@ -133,15 +133,15 @@ int main() {
     cv::Mat binary_img = detector.preprocessImage(bgr_img);
     // 找到灯条
     std::vector<Detector::Light> lights  = detector.findLights(bgr_img, binary_img);
-      std::cout << "success "  << std::endl;
+      std::cout << "Number of detected lights:" <<lights.size() << std::endl;
     // 显示二值化图像
     cv::imshow("Binary Image", binary_img);
     cv::waitKey(0);
     // 在原图上绘制检测到的灯条
-    for (const auto& light : lights ) {
-    //std::cout << "Light top position: " << light.top << std::endl;
-    //cv::Point2f center = light.getCenter(); // 获取 Light 对象的中心点
-    cv::circle(bgr_img,light.top, 10, cv::Scalar(0, 255, 0), -1); // 绘制绿色圆圈
+    for (const auto& light : lights) {
+    cv::Point topLeft(light.top.x - 10, light.top.y - 20); // 根据实际情况计算
+    cv::Point bottomRight(light.bottom.x + 10, light.bottom.y + 20); // 根据实际情况计算
+    cv::rectangle(bgr_img, topLeft, bottomRight, cv::Scalar(0, 255, 0), 2);    // 使用绿色绘制矩形框
     }
       // 显示结果图像
     cv::imshow("Detected Lights", bgr_img);
