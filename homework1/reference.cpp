@@ -152,7 +152,7 @@ bool Detector::containLight(
   	//遍历所有的灯条
 
     if (test_light.center == light_1.center || test_light.center == light_2.center) continue;
-    	  //排除参与拟合的两个灯条（center为light对象的中心点）
+    	  //排除参与拟合的两个灯条（because light inherit RotatedRect, and RotatedRect has the attritbute of center, hence center为light对象的中心点 as well）
     	  
     if (
       bounding_rect.contains(test_light.top) || bounding_rect.contains(test_light.bottom) ||

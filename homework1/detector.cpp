@@ -120,7 +120,7 @@ std::vector<Armor> Detector::matchLights(const std::vector<Light> & lights)
 
 
 
-      auto type; 
+      ArmorType type; 
       
       if (type != ArmorType::INVALID) {
         auto armor = Armor(*light_1, *light_2);
