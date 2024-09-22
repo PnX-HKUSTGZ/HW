@@ -2,17 +2,7 @@
 
 ### 阅读armor.hpp中 Light 类和 Armor 类具有的变量，完成detect.cpp文件“TODO”部分更准确地实现灯条匹配。具体涉及到的方法参考 notion 教程
 
-------
 
-如何 git 下载代码？
-
-在想要下载的位置
-
-若该位置没有项目，从未进行 git 初始化， 先 `git init`
-```
-git add remote <name> <link>
-git pull <name> <branchname>
-```
 ------
 
 一些开始指引：（可用Tab补全）
