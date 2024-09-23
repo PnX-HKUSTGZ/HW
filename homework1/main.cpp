@@ -19,7 +19,7 @@ Detector detector_(bin_tres, detect_color);
  // 0 for picture testing, 1 for video testing, 2 for realtime camera testing 
 int Mode;
 
-// 从这里到代码第228行 are camera reading relevant code, no need to inspect them in this stage
+// 从这里到代码第228行属于摄像头的读取相关函数，非该作业重点
 void PressEnterToExit(void)
 {
     int c;
@@ -260,7 +260,7 @@ int main() {
 
         cv::cvtColor(ori_image, ori_image, cv::COLOR_BGR2RGB); // 由于cv::imread得到的图像的默认色彩通道是BGR，需要转化成RBG
 
-        detector_.WholeProcess(ori_image);
+        detector_.WholeProcess(ori_image); // 对图像进行处理
 
         cv::cvtColor(ori_image, ori_image, cv::COLOR_RGB2BGR); // 由于转化回BGR以正常 imshow 显示
         cv::imshow("Result", ori_image);
