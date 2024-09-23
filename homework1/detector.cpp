@@ -138,28 +138,28 @@ std::vector<Armor> Detector::matchLights(const std::vector<Light> & lights)
 void Detector::drawResults(cv::Mat & img)
 {
   // Draw Lights
-  for (const auto & light : lights_) {
-    cv::circle(img, light.top, 3, cv::Scalar(255, 255, 255), Light_draw_strike);
+  for (const auto & light : lights_) { // lights_ 是 Detector 的成员变量
+    cv::circle(img, light.top, 3, cv::Scalar(255, 255, 255), Light_draw_strike); // cv::circle() 在img上画圆，圆的中心是light.top， 圆的半径是3，颜色是（255，255，255）白，圆的边界线条的粗细是Light_draw_strike
     cv::circle(img, light.bottom, 3, cv::Scalar(255, 255, 255), Light_draw_strike);
-    auto line_color = light.color == RED ? cv::Scalar(255, 255, 0) : cv::Scalar(255, 0, 255);
-    cv::line(img, light.top, light.bottom, line_color, Light_draw_strike);
+    auto line_color = light.color == RED ? cv::Scalar(255, 255, 0) : cv::Scalar(255, 0, 255); // 定义线的颜色
+    cv::line(img, light.top, light.bottom, line_color, Light_draw_strike); // 在img上 light.top 和 light.bottom 之间连线，颜色是上边定义的line_color，边界线条的粗细是Light_draw_strike
   }
 
   // Draw armors
-  for (const auto & armor : armors_) {
-    cv::line(img, armor.left_light.top, armor.right_light.bottom, cv::Scalar(0, 255, 0), Armor_draw_strike);
+  for (const auto & armor : armors_) { // armors_ 是 Detector 的成员变量
+    cv::line(img, armor.left_light.top, armor.right_light.bottom, cv::Scalar(0, 255, 0), Armor_draw_strike); //同理
     cv::line(img, armor.left_light.bottom, armor.right_light.top, cv::Scalar(0, 255, 0), Armor_draw_strike);
   }
 
 }
 
 void Detector::WholeProcess(cv::Mat & ori_img){
-  binary_img = preprocessImage(ori_img);
-  cv::imshow("bin_img", binary_img);
+  binary_img = preprocessImage(ori_img); 
+  cv::imshow("bin_img", binary_img);  // 展示二值化处理后的图像
   lights_ = findLights(ori_img, binary_img);
-  std::cout << "Lights detected number: " << lights_.size() << std::endl;
+  std::cout << "Lights detected number: " << lights_.size() << std::endl; // 识别到了多少灯条
   armors_ = matchLights(lights_);
-  std::cout << "Armors detected number: " << armors_.size() << std::endl;
+  std::cout << "Armors detected number: " << armors_.size() << std::endl; // 匹配到了多少灯条
   drawResults(ori_img);
 }
 // namespace rm_auto_aim

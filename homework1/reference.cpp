@@ -25,11 +25,6 @@ std::vector<Armor> Detector::detect(const cv::Mat & input)
   lights_ = findLights(input, binary_img);
   armors_ = matchLights(lights_);
 
-  // if (!armors_.empty()) {
-  //   classifier->extractNumbers(input, armors_);
-  //   classifier->classify(armors_);
-  // }
-
   return armors_;
 }
 
@@ -226,13 +221,6 @@ void Detector::drawResults(cv::Mat & img)
     cv::line(img, armor.left_light.top, armor.right_light.bottom, cv::Scalar(0, 255, 0), Armor_draw_strike);
     cv::line(img, armor.left_light.bottom, armor.right_light.top, cv::Scalar(0, 255, 0), Armor_draw_strike);
   }
-
-  // Show numbers and confidence
-  // for (const auto & armor : armors_) {
-  //   cv::putText(
-  //     img, armor.classfication_result, armor.left_light.top, cv::FONT_HERSHEY_SIMPLEX, 0.8,
-  //     cv::Scalar(0, 255, 255), 2);
-  // }
 }
 
 void Detector::WholeProcess(cv::Mat & ori_img){

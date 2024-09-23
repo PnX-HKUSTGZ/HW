@@ -46,11 +46,8 @@ public:
   cv::Mat preprocessImage(const cv::Mat & input);
   std::vector<Light> findLights(const cv::Mat & rbg_img, const cv::Mat & binary_img);
   std::vector<Armor> matchLights(const std::vector<Light> & lights);
-
-  // For debug usage
-  cv::Mat getAllNumbersImage();
+  
   void drawResults(cv::Mat & img);
-
   void WholeProcess(cv::Mat & ori_img);
 
   int binary_thres;
@@ -71,11 +68,11 @@ private:
     const Light & light_1, const Light & light_2, const std::vector<Light> & lights);
   ArmorType isArmor(const Light & light_1, const Light & light_2);
 
-  std::vector<Light> lights_;
+  std::vector<Light> lights_; 
   std::vector<Armor> armors_;
 
-  const int Light_draw_strike = 3;
-  const int Armor_draw_strike = 5;
+  const int Light_draw_strike = 3; // 可视化中线条的粗细参数
+  const int Armor_draw_strike = 5; // 可视化中线条的粗细参数
 };
 
 // namespace rm_auto_aim

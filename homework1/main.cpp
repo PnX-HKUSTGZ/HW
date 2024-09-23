@@ -243,6 +243,7 @@ int main() {
     std::string savePath = "../output";
     cv::Mat ori_image;
     std::string picName;
+    
     for (const auto &entry : std::filesystem::directory_iterator(folderPath)) { //遍历目标文件夹下的所有图片
       if (entry.is_regular_file()) {
         picName = entry.path().string();
@@ -269,6 +270,7 @@ int main() {
 
         std::string temsavePath = savePath;
         std::string tems  = "";
+        //一些遍历操作与储存 执行完灯条识别和灯条匹配后的操作
         for (int i=picName.length()-1;i>=0;i--){
             tems += picName[i];
             if(picName[i] == '/') break;
@@ -284,10 +286,11 @@ int main() {
             std::cerr << "Error saving image!" << std::endl;
             return -1;
         }
-        int key = cv::waitKey(0);
+        int key = cv::waitKey(3000);
         if (key == 27) { // If ESC key is pressed, exit the loop
           break;
         }
+
       }
     }
     std::cout << "finish testing all the images in the folder\n";

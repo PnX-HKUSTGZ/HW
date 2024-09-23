@@ -13,9 +13,10 @@
 const int RED = 0;
 const int BLUE = 1;
 
-enum class ArmorType { SMALL, LARGE, INVALID }; //规定了Armor类型有三种
+enum ArmorType { SMALL, LARGE, INVALID }; //规定了Armor类型有三种
 const std::string ARMOR_TYPE_STR[3] = {"small", "large", "invalid"};
 
+//灯条类的定义，可以运用类中的变量进行灯条匹配
 struct Light : public cv::RotatedRect
 {
   Light() = default;
@@ -58,16 +59,11 @@ struct Armor
   }
 
   // Light pairs part
-  Light left_light, right_light;
-  cv::Point2f center; // center 为一个平面上的点
-  ArmorType type; 
+  Light left_light, right_light; // Armor类所含灯条的 声明
+  cv::Point2f center; // center 会在灯条Armor对象生成时根据计算对应Armor类的中心点
+  ArmorType type;  // Armor所属类型，根据代码 enum class ArmorType { SMALL, LARGE, INVALID }; //规定了Armor类型有三种
 
-  // Number part
-  cv::Mat number_img;
-  std::string number;
-  float confidence;
-  std::string classfication_result;
-};
+ };
 
 // namespace rm_auto_aim
 
