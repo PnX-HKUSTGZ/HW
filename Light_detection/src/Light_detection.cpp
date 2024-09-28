@@ -28,6 +28,7 @@ cv::Mat Detector::preprocessImage(const cv::Mat & rgb_img)
 }
 //void findLights(const cv::Mat & rbg_img, const cv::Mat & binary_img); 
 //-----------------------------------------------------------------------------------------
+
 bool isLight(const Detector::Light & light)
 {
   // 灯条的短边长 / 长边长
@@ -133,7 +134,7 @@ int main() {
     cv::Mat binary_img = detector.preprocessImage(bgr_img);
     // 找到灯条
     std::vector<Detector::Light> lights  = detector.findLights(bgr_img, binary_img);
-      std::cout << "Number of detected lights:" <<lights.size() << std::endl;
+      std::cout << "Number of detected lights:" << lights.size() << std::endl;
     // 显示二值化图像
     cv::imshow("Binary Image", binary_img);
     cv::waitKey(0);

@@ -22,9 +22,13 @@ find_package(OpenCV REQUIRED)
 ## Build ##
 ###########
 include_directories(${CMAKE_SOURCE_DIR}/includes)
+
 add_executable(Light_detection src/Light_detection.cpp)
+add_executable(ChannelSubtraction src/ChannelSubtraction.cpp)
+
 target_include_directories(Light_detection PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(Light_detection ${OpenCV_LIBS})
+target_link_libraries(ChannelSubtraction ${OpenCV_LIBS})
 
 #############
 ## Testing ##

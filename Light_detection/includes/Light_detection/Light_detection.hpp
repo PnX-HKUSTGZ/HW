@@ -23,7 +23,7 @@ Detector() : binary_thres(200), detect_color(1) {}
   //   double max_angle;
   // };
   cv::Mat preprocessImage(const cv::Mat & rgb_img);
-//--------------------------------------
+//---------------------------------------------
 Detector(const int & bin_thres, const int & color);
 
 //--------------------------------------------------------------------------------------------------------------  
