@@ -13,8 +13,7 @@ int main() {
     }
 
     // Display the synthetic image
-    cv::imshow("Synthetic Image", syntheticImage);
-    cv::waitKey(0);
+
 
     // Convert the synthetic image to Eigen matrix for further processing
     Eigen::MatrixXf eigenMatrix(syntheticImage.rows, syntheticImage.cols);
