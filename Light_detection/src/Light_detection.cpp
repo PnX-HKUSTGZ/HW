@@ -5,11 +5,11 @@
 #include <opencv2/imgproc.hpp>
 #include <vector>
 #include <opencv2/core/types.hpp>
-#include "Light_detection/Light_detection.hpp"
+#include "../includes/Light_detection/Light_detection.hpp"
 
 
-Detector::Detector(const int &bin_thres, const int &color)
-    : binary_thres(bin_thres), detect_color(color) {}
+// Detector::Detector(const int &bin_thres, const int &color)
+//     : binary_thres(bin_thres), detect_color(color) {}
 //---------------------------------------------------------------------------------------------------------------------------------
 cv::Mat Detector::preprocessImage(const cv::Mat & rgb_img)
 {
@@ -71,15 +71,13 @@ bool isLight(const Detector::Light & light)
   // 遍历轮廓，寻找灯条
   for (const auto & contour : contours) {
   //std::cout << "当前轮廓点数: " << contour.size() << std::endl;
-    // 轮廓点数小于 5 个，不是灯条
-    //if (contour.size() < 5) {continue;}
+    if (contour.size() < 10) {continue;}
     // 寻找轮廓的最小外接矩形
     auto r_rect = cv::minAreaRect(contour);
     // 将旋转矩形转化为灯条
     auto light = Detector::Light(r_rect);
     // 判断是否为灯条
     if (isLight(light)) {
-      // 如果是灯条，计算灯条的颜色
       auto rect = light.boundingRect();
       // 防止越界，检查矩形是否在图像内
       if (0 <= rect.x && 0 <= rect.width && rect.x + rect.width <= rgb_img.cols &&
@@ -134,7 +132,7 @@ int main() {
     cv::Mat binary_img = detector.preprocessImage(bgr_img);
     // 找到灯条
     std::vector<Detector::Light> lights  = detector.findLights(bgr_img, binary_img);
-      std::cout << "Number of detected lights:" << lights.size() << std::endl;
+    std::cout << "Number of detected lights:" << lights.size() << std::endl;
     // 显示二值化图像
     cv::imshow("Binary Image", binary_img);
     cv::waitKey(0);

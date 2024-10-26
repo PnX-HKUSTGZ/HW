@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Light_detection)
+project(Light_detection/Light_detection)
 
 ## Use C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -21,14 +21,14 @@ find_package(OpenCV REQUIRED)
 ###########
 ## Build ##
 ###########
-include_directories(${CMAKE_SOURCE_DIR}/includes)
+include_directories(${CMAKE_SOURCE_DIR}/includes/Light_detection)
 
 add_executable(Light_detection src/Light_detection.cpp)
-add_executable(ChannelSubtraction src/ChannelSubtraction.cpp)
+#add_executable(ChannelSubtraction src/ChannelSubtraction.cpp)
 
 target_include_directories(Light_detection PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(Light_detection ${OpenCV_LIBS})
-target_link_libraries(ChannelSubtraction ${OpenCV_LIBS})
+#target_link_libraries(ChannelSubtraction ${OpenCV_LIBS})
 
 #############
 ## Testing ##
