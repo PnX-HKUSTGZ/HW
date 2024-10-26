@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/joe/Light_detection/Light_detection/build",
-  "command": "/usr/bin/c++  -I/home/joe/Light_detection/Light_detection/includes/Light_detection -isystem /usr/include/opencv4   -Wall -Werror -std=gnu++14 -o CMakeFiles/Light_detection.dir/src/Light_detection.cpp.o -c /home/joe/Light_detection/Light_detection/src/Light_detection.cpp",
-  "file": "/home/joe/Light_detection/Light_detection/src/Light_detection.cpp"
-}
-]
