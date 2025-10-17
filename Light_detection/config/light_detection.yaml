@@ -1,0 +1,46 @@
+%YAML:1.0
+preprocess:
+  binary_threshold: 90    # 阈值
+  open_ksize: 2             # 开运算核大小(奇数)
+  open_iters: 1             # 开运算迭代次数
+  close_ksize: 6            # 闭运算核大小(奇数)
+  close_iters: 3            # 闭运算迭代次数
+  # 局部对比度增强（CLAHE）
+  use_clahe: true
+  clahe_clip_limit: 1.5
+  clahe_tile_size: 10        # TILE×TILE 网格
+
+light_filter:
+  min_ratio: 0.1
+  max_ratio: 0.4
+  max_angle_deg: 40.0
+
+matcher:
+  enforce_same_color: true
+  min_avg_length: 8.0
+  max_horizontal_angle_deg: 12.0
+  max_axis_alignment_cos: 0.35
+  max_parallel_angle_deg: 12.0
+  min_dx_factor: 0.6
+  max_dx_factor: 5.0
+  max_dy_factor: 0.35
+  max_angle_diff_deg: 20.0
+  max_length_ratio: 1.6
+  preferred_dx_factor: 2.0
+  score_angle_weight: 1.0
+  score_length_weight: 10.0
+  score_dy_weight: 5.0
+  score_dx_weight: 2.0
+
+drawing:
+  light_thickness: 2
+  light_width_scale: 1.05
+  pair_thickness: 2
+  pair_width_scale: 1.05
+
+video:
+  enable_write: true
+  min_valid_fps: 5.0
+  max_valid_fps: 120.0
+  fallback_fps: 30.0
+  default_output: "annotated.avi"

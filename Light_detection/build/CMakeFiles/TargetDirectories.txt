@@ -1,0 +1,3 @@
+/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build/CMakeFiles/Light_detection.dir
+/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build/CMakeFiles/edit_cache.dir
+/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build/CMakeFiles/rebuild_cache.dir
