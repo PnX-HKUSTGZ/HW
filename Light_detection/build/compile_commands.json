@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build",
+  "command": "/usr/bin/c++  -I/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/includes -isystem /usr/include/opencv4   -Wall -Werror -std=gnu++17 -o CMakeFiles/Light_detection.dir/src/Light_detection.cpp.o -c /home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/Light_detection.cpp",
+  "file": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/Light_detection.cpp"
+},
+{
+  "directory": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build",
+  "command": "/usr/bin/c++  -I/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/includes -isystem /usr/include/opencv4   -Wall -Werror -std=gnu++17 -o CMakeFiles/Light_detection.dir/src/DetectorParamsLoader.cpp.o -c /home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/DetectorParamsLoader.cpp",
+  "file": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/DetectorParamsLoader.cpp"
+},
+{
+  "directory": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build",
+  "command": "/usr/bin/c++  -I/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/includes -isystem /usr/include/opencv4   -Wall -Werror -std=gnu++17 -o CMakeFiles/Light_detection.dir/src/FrameProcessing.cpp.o -c /home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/FrameProcessing.cpp",
+  "file": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/FrameProcessing.cpp"
+},
+{
+  "directory": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/build",
+  "command": "/usr/bin/c++  -I/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/includes -isystem /usr/include/opencv4   -Wall -Werror -std=gnu++17 -o CMakeFiles/Light_detection.dir/src/LightMatcher.cpp.o -c /home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/LightMatcher.cpp",
+  "file": "/home/blade_master/pnx/25teaching_opencv/HW/Light_detection/src/LightMatcher.cpp"
+}
+]
